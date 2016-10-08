@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 URL Shortener Microservice
+  h4 User stories:
+  p I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+  p If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
+  p When I visit that shortened URL, it will redirect me to my original link.
+ 
+  h4 Example usage:
+  code.red https://seimi-urlshortener.herokuapp.com/new/https://www.google.com
+ 
+  h4 Example creation output:
+  code.red {"original_url":"https://www.google.com","short_url":"seimi-urlshortener.herokuapp.com/BJfjggUA"}
+  h4 Usage:
+  code.red seimi-urlshortener.herokuapp.com/BJfjggUA 
+  
+  h4 Will redirect to:
+  code.red https://www.google.com/
