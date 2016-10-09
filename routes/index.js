@@ -6,8 +6,6 @@ var shortid = require('shortid');
     shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@');
 var validUrl = require('valid-url');
 
-var config = require('../config');
-var mLink = 'mongodb://' + config.db.host + '/' + config.db.name;
 var MongoClient = mongodb.MongoClient;
 
 /* GET home page. */
@@ -17,7 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new/:url(*)', function (req, res, next) {
-    MongoClient.connect(mLink, function(err, db){
+    MongoClient.connect(process.env.DB_HOST, function(err, db){
     if(err){
         throw err;
     } else {
@@ -51,7 +49,7 @@ router.get('/new/:url(*)', function (req, res, next) {
 });
 
 router.get('/new/:url(*)', function (req, res, next) {
-    MongoClient.connect(mLink, function (err, db){
+    MongoClient.connect(process.env.DB_HOST, function (err, db){
         if(err){
             throw err;
         } else {
